@@ -1666,10 +1666,7 @@ MonoBehaviour:
   score: {fileID: 1678962696}
   Ready: {fileID: 1042317018}
   gameclear: {fileID: 1860571096}
-  zanki0: {fileID: 1956785012}
-  zanki1: {fileID: 1872520052}
-  zanki2: {fileID: 1522722183}
-  zanki3: {fileID: 1188552748}
+  highScoreText: {fileID: 1600466539}
   scoreNum: 0
   scoreCount: 0
 --- !u!1 &1860571094
