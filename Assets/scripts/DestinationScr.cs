@@ -17,6 +17,11 @@ public class DestinationScr : MonoBehaviour
 
     void Update()
     {
+        Invoke("Move", 3.0f);
+    }
+
+    void Move()
+    {
         agent.SetDestination(target.transform.position);
     }
 }

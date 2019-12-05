@@ -9,6 +9,9 @@ public class HitEnemy : MonoBehaviour
     public GameObject enmy;
 
     playerScr playr;
+
+
+
     void Start()
     {
         plyr = GameObject.Find("player");
