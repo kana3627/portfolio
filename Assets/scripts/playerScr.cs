@@ -13,8 +13,11 @@ public class playerScr : MonoBehaviour
 
     int zankiCount = 0;
 
+    public bool flg = true;
+
     void Start()
     {
+
 
         zanki = new GameObject[4];
         for (int i = 0; i < 4; i++)
@@ -43,6 +46,8 @@ public class playerScr : MonoBehaviour
         //敵に当たったら残機の表示を減らす処理
         if (other.tag == "redEnemy" || other.tag == "pinkEnemy" || other.tag == "lightBlueEnemy")
         {
+            flg = true;
+            Debug.Log(flg);
             zanki[zankiCount].SetActive(false);
             zankiCount++;
         }
@@ -67,6 +72,7 @@ public class playerScr : MonoBehaviour
         {
             transform.position -= transform.right * speed;
         }
+
     }
 
 }

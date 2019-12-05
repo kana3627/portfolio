@@ -10,6 +10,7 @@ public class textScr : MonoBehaviour
     public Text Ready;      //最初に出すreadyの文字
     public Text gameclear;  //アイテムを全部取り切ったら表示するテキスト
     public Text highScoreText;  //ハイスコアを表示する
+    public Text NewHiscore;     //ハイスコアが更新された時に表示するテキスト
 
     public int scoreNum;    //スコアを表示する変数
     public int scoreCount;  //集めたアイテムの数
@@ -23,6 +24,7 @@ public class textScr : MonoBehaviour
     void Start()
     {
         gameclear.enabled = false;
+        NewHiscore.enabled = false;
 
         //itemタグがついてるオブジェクトの数をカウント
         itemObject = GameObject.FindGameObjectsWithTag("item");
@@ -45,6 +47,7 @@ public class textScr : MonoBehaviour
             gameclear.enabled = true;
             if (scoreNum > highScore)
             {
+                NewHiscore.enabled = true;
                 highScore = scoreNum;
                 PlayerPrefs.SetInt(key, highScore);
                 highScoreText.text = "HISCORE" + highScore;
