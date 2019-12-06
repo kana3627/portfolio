@@ -60,7 +60,7 @@ public class textScr : MonoBehaviour
     }
 
     //readyの文字を非表示にする関数
-    void readyDisplay()
+    public void readyDisplay()
     {
 
         Ready.enabled = false;

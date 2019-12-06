@@ -11,6 +11,8 @@ public class gameController : MonoBehaviour
     public GameObject enemy1;
     public GameObject textCntr;
 
+    playerMoveScr playerSpeed;
+    playerScr player;
     itemCount item;
     textScr text;
 
@@ -21,6 +23,8 @@ public class gameController : MonoBehaviour
         enemy1 = GameObject.Find("PinkEnemy");
         textCntr = GameObject.Find("TextController");
 
+        player = plyr.GetComponent<playerScr>();
+        playerSpeed = plyr.GetComponent<playerMoveScr>();
         item = plyr.GetComponent<itemCount>();
         text = textCntr.GetComponent<textScr>();
     }
@@ -46,6 +50,17 @@ public class gameController : MonoBehaviour
             Invoke("Reset", 3.0f);
         }
 
+        if (player.flg == true)
+        {
+            playerSpeed.speed = 0f;
+
+            enemy.GetComponent<NavMeshAgent>().isStopped = true;
+            enemy1.GetComponent<NavMeshAgent>().isStopped = true;
+            //readyの文字が表示されるスクリプト（３病後に消える）
+            rePlay();
+
+        }
+
     }
 
     private void Reset()
@@ -57,5 +72,10 @@ public class gameController : MonoBehaviour
         enemy1.GetComponent<NavMeshAgent>().speed = 3.5f;
         item.SitemFlg = false;
 
+    }
+
+    void rePlay()
+    {
+        //挙動を戻すスクリプト
     }
 }

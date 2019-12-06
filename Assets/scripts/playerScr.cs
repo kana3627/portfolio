@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class playerScr : MonoBehaviour
 {
 
-    public float speed = 0.1f;   //移動スピード
+    //public float speed = 0.1f;   //移動スピード
 
     GameObject[] zanki;          //残機を保持する配列
 
     int zankiCount = 0;          //消えるオブジェクトの要素
 
-    public bool flg = true;
+    public bool flg = false;
 
     void Start()
     {
@@ -29,7 +29,6 @@ public class playerScr : MonoBehaviour
 
     void Update()
     {
-        Invoke("moveKey", 3.0f);
 
         //残機がなくなったらgameover画面に遷移する
         if (zankiCount >= 4)
@@ -54,25 +53,25 @@ public class playerScr : MonoBehaviour
 
     }
 
-    void moveKey()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += transform.forward * speed;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position -= transform.forward * speed;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += transform.right * speed;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= transform.right * speed;
-        }
+    //void moveKey()
+    //{
+    //    if (Input.GetKey(KeyCode.UpArrow))
+    //    {
+    //        transform.position += transform.forward * speed;
+    //    }
+    //    else if (Input.GetKey(KeyCode.DownArrow))
+    //    {
+    //        transform.position -= transform.forward * speed;
+    //    }
+    //    else if (Input.GetKey(KeyCode.RightArrow))
+    //    {
+    //        transform.position += transform.right * speed;
+    //    }
+    //    else if (Input.GetKey(KeyCode.LeftArrow))
+    //    {
+    //        transform.position -= transform.right * speed;
+    //    }
 
-    }
+    //}
 
 }
