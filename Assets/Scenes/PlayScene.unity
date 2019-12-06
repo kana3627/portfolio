@@ -836,7 +836,6 @@ MonoBehaviour:
   wall: {fileID: 9133664671915293062, guid: 8a64564f35de54b82861c0ea5a26321e, type: 3}
   item: {fileID: 2653020648285718853, guid: 2cd98f39e35cf4658aac325c31d108ca, type: 3}
   Sitem: {fileID: 3123872584558077965, guid: 4a0a00d4ec0604f6e8c19429623cb05d, type: 3}
-  player: {fileID: 1569135049377022839, guid: fe538a6e01fc64dd4947d60568cd0ce7, type: 3}
 --- !u!1 &619363806
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +982,7 @@ GameObject:
   - component: {fileID: 805148417}
   - component: {fileID: 805148418}
   m_Layer: 0
-  m_Name: HitEnemy
+  m_Name: gameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,11 +1011,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 805148416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed121e5f6137461b9ca66856b7ee884, type: 3}
+  m_Script: {fileID: 11500000, guid: 29e41849cf7204441a3731857a2c7b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plyr: {fileID: 0}
-  enmy: {fileID: 0}
+  enemy: {fileID: 0}
+  enemy1: {fileID: 0}
+  textCntr: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1770,7 @@ MonoBehaviour:
   NewHiscore: {fileID: 2008843024}
   scoreNum: 0
   scoreCount: 0
+  textFlg: 0
 --- !u!1 &1821490477
 GameObject:
   m_ObjectHideFlags: 0

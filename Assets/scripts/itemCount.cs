@@ -10,6 +10,8 @@ public class itemCount : MonoBehaviour
     public GameObject TextController;
     textScr text;
 
+    public bool SitemFlg = false;
+
     void Start()
     {
 
@@ -24,6 +26,10 @@ public class itemCount : MonoBehaviour
             text.scoreNum += 10;  //スコアを返す
             text.scoreCount++;    //集めたアイテムの個数を返す
 
+        }
+        else if (other.tag == "Sitem")
+        {
+            SitemFlg = true;
         }
     }
 }
