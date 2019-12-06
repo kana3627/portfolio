@@ -10,7 +10,7 @@ public class wallgenerator : MonoBehaviour        //マップ生成のスクリ�
     public GameObject wall;
     public GameObject item;
     public GameObject Sitem;
-    public GameObject player;
+
 
     //マップの情報
     int[,] map =
@@ -51,11 +51,13 @@ public class wallgenerator : MonoBehaviour        //マップ生成のスクリ�
                     GameObject block = Instantiate(wall, vec, Quaternion.identity);
                     block.tag = "wall";
                 }
+                //2は集めるアイテムを生成
                 else if (a == 2)
                 {
                     GameObject _item = Instantiate(item, vec, Quaternion.identity);
                     _item.tag = "item";
                 }
+                //3はスタンアイテムを生成
                 else if (a == 3)
                 {
                     GameObject _Sitem = Instantiate(Sitem, vec, Quaternion.identity);

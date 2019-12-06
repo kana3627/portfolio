@@ -18,6 +18,8 @@ public class textScr : MonoBehaviour
     private static int highScore;
     private string key = "HIGH SCORE";
 
+    public bool textFlg = false;
+
     GameObject[] itemObject; //シーン上にあるアイテムを保持する配列
     int itemNum;             //配列の要素数からシーン上にあるアイテムの数を求める
 
@@ -45,12 +47,13 @@ public class textScr : MonoBehaviour
         if (scoreCount >= itemNum)
         {
             gameclear.enabled = true;
+            textFlg = true;
             if (scoreNum > highScore)
             {
                 NewHiscore.enabled = true;
                 highScore = scoreNum;
                 PlayerPrefs.SetInt(key, highScore);
-                highScoreText.text = "HISCORE" + highScore;
+                highScoreText.text = "HISCORE:" + highScore;
             }
         }
 

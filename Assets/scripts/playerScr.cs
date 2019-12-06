@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class playerScr : MonoBehaviour
 {
 
-    public float speed = 0.1f;
+    public float speed = 0.1f;   //移動スピード
 
-    GameObject[] zanki;
+    GameObject[] zanki;          //残機を保持する配列
 
-    int zankiCount = 0;
+    int zankiCount = 0;          //消えるオブジェクトの要素
 
     public bool flg = true;
 
