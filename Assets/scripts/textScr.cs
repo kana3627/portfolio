@@ -35,13 +35,15 @@ public class textScr : MonoBehaviour
         highScore = PlayerPrefs.GetInt(key, 0);
         highScoreText.text = highScore.ToString();
 
+        Invoke("readyDisplay", 3.0f);
+
     }
 
 
     void Update()
     {
         score.text = "SCORE:" + scoreNum;  //itemCountで渡された値と敵を食べた時の値を表示
-        Invoke("readyDisplay", 3.0f);
+                                           // Invoke("readyDisplay", 3.0f);
 
         //集めたアイテム数が、シーン上にあるアイテムの数を超えたらgameclearの文字を表示
         if (scoreCount >= itemNum)

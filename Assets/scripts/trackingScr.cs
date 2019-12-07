@@ -9,7 +9,7 @@ public class trackingScr : MonoBehaviour
     public GameObject dest;  //destination
     void Start()
     {
-        plyr = GameObject.Find("player(Clone)");
+        plyr = GameObject.Find("player");
         dest = GameObject.Find("Destination");
 
         Debug.Log(dest);

@@ -15,7 +15,7 @@ public class gameController : MonoBehaviour
     playerScr player;
     itemCount item;
     textScr text;
-
+    Color alpha = new Color(0, 0, 0, 0.1f);
     void Start()
     {
         plyr = GameObject.Find("player");
@@ -27,6 +27,8 @@ public class gameController : MonoBehaviour
         playerSpeed = plyr.GetComponent<playerMoveScr>();
         item = plyr.GetComponent<itemCount>();
         text = textCntr.GetComponent<textScr>();
+
+
     }
 
 
@@ -50,19 +52,32 @@ public class gameController : MonoBehaviour
             Invoke("Reset", 3.0f);
         }
 
+        //playerが通常状態の敵に捕まった時の挙動
         if (player.flg == true)
         {
             playerSpeed.speed = 0f;
 
             enemy.GetComponent<NavMeshAgent>().isStopped = true;
             enemy1.GetComponent<NavMeshAgent>().isStopped = true;
-            //readyの文字が表示されるスクリプト（３病後に消える）
-            rePlay();
+            behavior();
+
 
         }
 
     }
 
+    //深い意味はない
+    void behavior()
+    {
+        enemy.transform.position = new Vector3(10f, 0.5f, -7.5f);
+        enemy1.transform.position = new Vector3(9f, 0.5f, -7.5f);
+        //readyの文字が表示されるスクリプト（３秒後に消える）
+        text.Ready.enabled = true;
+        Invoke("readyDisplay", 3.0f);
+        Invoke("rePlay", 3.0f);
+    }
+
+    //スタン状態から元に戻す関数
     private void Reset()
     {
         enemy.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 255);
@@ -74,8 +89,19 @@ public class gameController : MonoBehaviour
 
     }
 
+
     void rePlay()
     {
         //挙動を戻すスクリプト
+        playerSpeed.speed = 0.1f;
+
+        enemy.GetComponent<NavMeshAgent>().isStopped = false;
+        enemy1.GetComponent<NavMeshAgent>().isStopped = false;
+        player.flg = false;
+    }
+
+    void readyDisplay()
+    {
+        text.Ready.enabled = false;
     }
 }
