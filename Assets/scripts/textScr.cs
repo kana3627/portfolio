@@ -61,7 +61,6 @@ public class textScr : MonoBehaviour
             Time.timeScale = 0f;
             timeScore = scoreNum * (int)countdown;
             score.text = "SCORE:" + timeScore;
-            ending();
 
             if (timeScore > highScore)
             {
@@ -93,9 +92,5 @@ public class textScr : MonoBehaviour
         countdown -= Time.deltaTime;
     }
 
-    //クレジット画面に遷移する関数
-    void ending()
-    {
-        SceneManager.LoadScene("ending");
-    }
+
 }

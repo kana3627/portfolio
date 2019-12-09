@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class gameController : MonoBehaviour
 {
@@ -60,6 +61,13 @@ public class gameController : MonoBehaviour
         if (player.flg == true)
         {
             behavior();
+
+        }
+        //ゲームクリアしたら
+        if (text.textFlg == true)
+        {
+            // SceneManager.LoadScene("ending");     //アニメーションで作ったのですが、シーン遷移の時にうまく再生できませんでした
+            SceneManager.LoadScene("endingNotAnimation");
         }
 
     }
