@@ -12,6 +12,7 @@ public class DestinationScr : MonoBehaviour
     {
 
         agent = GetComponent<NavMeshAgent>();
+
     }
 
 

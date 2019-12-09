@@ -11,13 +11,16 @@ public class playerScr : MonoBehaviour
 
     GameObject[] zanki;          //残機を保持する配列
 
-    int zankiCount = 0;          //消えるオブジェクトの要素
+    public int zankiCount = 0;          //消えるオブジェクトの要素
+
 
     public bool flg = false;
 
+    itemCount item;
+
     void Start()
     {
-
+        item = GetComponent<itemCount>();
 
         zanki = new GameObject[4];
         for (int i = 0; i < 4; i++)
@@ -43,12 +46,12 @@ public class playerScr : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //敵に当たったら残機の表示を減らす処理
-        if (other.tag == "redEnemy" || other.tag == "pinkEnemy" || other.tag == "lightBlueEnemy")
+        if (item.SitemFlg == false && other.tag == "redEnemy" || other.tag == "pinkEnemy")
         {
             flg = true;
-            Debug.Log(flg);
             zanki[zankiCount].SetActive(false);
             zankiCount++;
+
         }
 
     }

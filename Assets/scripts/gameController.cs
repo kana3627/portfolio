@@ -44,24 +44,22 @@ public class gameController : MonoBehaviour
         //スタンアイテムを取得したら、敵の挙動を変更する
         if (item.SitemFlg == true)
         {
+            player.flg = false;
+
             enemy.GetComponent<Renderer>().material.color = new Color(180, 0, 255, 255);
             enemy1.GetComponent<Renderer>().material.color = new Color(180, 0, 255, 255);
 
             enemy.GetComponent<NavMeshAgent>().speed = 1f;
             enemy1.GetComponent<NavMeshAgent>().speed = 1f;
             Invoke("Reset", 3.0f);
+
+
         }
 
         //playerが通常状態の敵に捕まった時の挙動
         if (player.flg == true)
         {
-            playerSpeed.speed = 0f;
-
-            enemy.GetComponent<NavMeshAgent>().isStopped = true;
-            enemy1.GetComponent<NavMeshAgent>().isStopped = true;
             behavior();
-
-
         }
 
     }
@@ -69,17 +67,24 @@ public class gameController : MonoBehaviour
     //深い意味はない
     void behavior()
     {
+        playerSpeed.speed = 0f;
+
+        enemy.GetComponent<NavMeshAgent>().isStopped = true;
+        enemy1.GetComponent<NavMeshAgent>().isStopped = true;
+
         enemy.transform.position = new Vector3(10f, 0.5f, -7.5f);
         enemy1.transform.position = new Vector3(9f, 0.5f, -7.5f);
         //readyの文字が表示されるスクリプト（３秒後に消える）
         text.Ready.enabled = true;
         Invoke("readyDisplay", 3.0f);
         Invoke("rePlay", 3.0f);
+        player.flg = false;
     }
 
     //スタン状態から元に戻す関数
     private void Reset()
     {
+
         enemy.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 255);
         enemy1.GetComponent<Renderer>().material.color = new Color(255, 148, 255, 255);
 
@@ -97,11 +102,12 @@ public class gameController : MonoBehaviour
 
         enemy.GetComponent<NavMeshAgent>().isStopped = false;
         enemy1.GetComponent<NavMeshAgent>().isStopped = false;
-        player.flg = false;
+
     }
 
     void readyDisplay()
     {
         text.Ready.enabled = false;
     }
+
 }
